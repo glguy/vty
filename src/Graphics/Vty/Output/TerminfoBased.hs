@@ -449,7 +449,6 @@ sgrArgsForState :: DisplayAttrState -> [CapParam]
 sgrArgsForState attrState = map (\b -> if b then 1 else 0)
     [ applyStandout attrState
     , applyUnderline attrState
-    , applyItalic attrState
     , applyReverseVideo attrState
     , applyBlink attrState
     , applyDim attrState
@@ -521,7 +520,7 @@ styleToApplySeq s = concat
     , applyIfRequired ApplyReverseVideo reverseVideo
     , applyIfRequired ApplyBlink blink
     , applyIfRequired ApplyDim dim
-    , applyIfRequired ApplyBlink bold
+    , applyIfRequired ApplyBold bold
     ]
     where
         applyIfRequired op flag
